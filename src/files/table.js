@@ -17,12 +17,25 @@ class RawTableFile extends BaseFile {
     let icon
     if (this.isImage()) {
       icon = browserProps.icons.Image
+    } else if (this.isVideo()) {
+      icon = browserProps.icons.Video
+    } else if (this.isAudio()) {
+      icon = browserProps.icons.Audio
+    } else if (this.isArchive()) {
+      icon = browserProps.icons.Archive
+    } else if (this.isWord()) {
+      icon = browserProps.icons.Word
+    } else if (this.isExcel()) {
+      icon = browserProps.icons.Excel
+    } else if (this.isPowerPoint()) {
+      icon = browserProps.icons.PowerPoint
+    } else if (this.isText()) {
+      icon = browserProps.icons.Text
     } else if (this.isPdf()) {
       icon = browserProps.icons.PDF
     } else {
       icon = browserProps.icons.File
     }
-
     const inAction = (isDragging || action)
 
     let name
@@ -92,7 +105,7 @@ class RawTableFile extends BaseFile {
         onDoubleClick={this.handleItemDoubleClick}
       >
         <td className="name">
-          <div style={{paddingLeft: (depth * 16) + 'px'}}>
+          <div style={{ paddingLeft: (depth * 16) + 'px' }}>
             {draggable}
           </div>
         </td>
